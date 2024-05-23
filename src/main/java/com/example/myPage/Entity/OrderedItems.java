@@ -19,6 +19,7 @@ public class OrderedItems {
     private Long orderedItemsId;
 
     @Column(nullable = false)
+    @JoinColumn(name = "orderHistoryId", referencedColumnName = "orderHistoryId")
     private Long orderHistoryId;
 
     @Column(nullable = false)
@@ -44,4 +45,6 @@ public class OrderedItems {
 
     @Column(nullable = false, columnDefinition = "timestamp default CURRENT_TIMESTAMP")
     private Timestamp updatedAt;
+
+
 }

@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "order_history")//주문내역
@@ -27,5 +28,8 @@ public class OrderHistory {
 
     @Column(nullable = false, columnDefinition = "timestamp default CURRENT_TIMESTAMP")
     private Timestamp updatedAt;
+
+    @OneToMany(mappedBy = "orderHistoryId")
+    private List<OrderedItems> orderedItems;
 }
 
