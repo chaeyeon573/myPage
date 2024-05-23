@@ -22,13 +22,17 @@ public class UserService {
     }
 
     private User convertToDto(User user) {
-        return User.builder()
-                .userId(user.getUserId())
-                .userEmail(user.getUserEmail())
-                .userPhone(user.getUserPhone())
-                .userAddr(user.getUserAddr())
-                .userImg(user.getUserImg())
-                .build();
+        if (user != null) {
+            return User.builder()
+                    .userId(user.getUserId())
+                    .userEmail(user.getUserEmail())
+                    .userPhone(user.getUserPhone())
+                    .userAddr(user.getUserAddr())
+                    .userImg(user.getUserImg())
+                    .build();
+        } else {
+            return null; // user가 null인 경우 null 반환
+        }
     }
 }
 
